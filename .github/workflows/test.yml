@@ -52,32 +52,55 @@ jobs:
           cd examples/full
           yarn build
 
-      - name: List build directory
-        run: |
-          echo "Listing examples/full directory contents:"
-          ls
-          echo "Listing examples/full/build directory contents:"
-          ls build
-
       - name: Upload build artifacts
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v2
         with:
-          name: build-artifacts
+          name: build-full-artifacts
           path: examples/full/build
-
   deploy:
     needs: build-full
     runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'  # only deploy on push to main branch
     steps:
       - uses: actions/checkout@v3
 
-      - name: Download build artifacts
-        uses: actions/download-artifact@v3
+      - uses: actions/setup-node@v3
         with:
-          name: build-artifacts
+          node-version: 16
+          cache: yarn
+
+      - name: Download build artifacts
+        uses: actions/download-artifact@v2
+        with:
+          name: build-full-artifacts
+          path: examples/full/build
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: build
+          publish_dir: ./examples/full/build
+  # TODO: using the official API with GitHub Actions results in too much rate
+  # limiting and false negative build failures, so we're disabling it for now.
+  # build-full-official-api:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: actions/checkout@v3
+
+  #     - uses: actions/setup-node@v3
+  #       with:
+  #         node-version: 16
+  #         cache: yarn
+
+  #     - run: yarn install --frozen-lockfile
+  #     - run: yarn build
+
+  #     - name: Build full example using the official Notion API
+
+  #       env:
+  #         USE_OFFICIAL_NOTION_API: true
+  #         NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
+
+  #       run: |
+  #         cd examples/full
+  #         yarn build
