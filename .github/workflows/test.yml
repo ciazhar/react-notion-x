@@ -44,16 +44,34 @@ jobs:
           node-version: 16
           cache: yarn
 
-      - run: yarn install --frozen-lockfile
-      - run: yarn build
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+
+      - name: Build project
+        run: yarn build
 
       - name: Build full example
         run: |
           cd examples/full
+          echo "Current directory: $(pwd)"
+          echo "Contents before build:"
+          ls -la
+          yarn install
           yarn build
+          echo "Contents after build:"
+          ls -la
+          echo "Build directory contents (if it exists):"
+          ls -la build || echo "Build directory does not exist"
+
+      - name: List build directory contents
+        run: |
+          echo "Contents of examples/full:"
+          ls -la examples/full
+          echo "Contents of examples/full/build (if it exists):"
+          ls -la examples/full/build || echo "Build directory does not exist"
 
       - name: Upload build artifacts
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: build-full-artifacts
           path: examples/full/build
@@ -69,39 +87,27 @@ jobs:
           node-version: 16
           cache: yarn
 
+      - name: List available artifacts
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          artifacts=$(curl -H "Authorization: token $GITHUB_TOKEN" \
+          https://api.github.com/repos/${{ github.repository }}/actions/artifacts)
+          echo $artifacts
+
       - name: Download build artifacts
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v3
         with:
           name: build-full-artifacts
           path: examples/full/build
+
+      - name: List downloaded artifacts
+        run: |
+          echo "Contents of examples/full/build:"
+          ls -la examples/full/build
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./examples/full/build
-
-  # TODO: using the official API with GitHub Actions results in too much rate
-  # limiting and false negative build failures, so we're disabling it for now.
-  # build-full-official-api:
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - uses: actions/checkout@v3
-
-  #     - uses: actions/setup-node@v3
-  #       with:
-  #         node-version: 16
-  #         cache: yarn
-
-  #     - run: yarn install --frozen-lockfile
-  #     - run: yarn build
-
-  #     - name: Build full example using the official Notion API
-
-  #       env:
-  #         USE_OFFICIAL_NOTION_API: true
-  #         NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
-
-  #       run: |
-  #         cd examples/full
-  #         yarn build
