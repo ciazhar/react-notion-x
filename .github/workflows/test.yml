@@ -55,9 +55,9 @@ jobs:
       - name: List build directory
         run: |
           echo "Listing examples/full directory contents:"
-          ls examples/full
+          ls
           echo "Listing examples/full/build directory contents:"
-          ls examples/full/build
+          ls build
 
       - name: Upload build artifacts
         uses: actions/upload-artifact@v3
