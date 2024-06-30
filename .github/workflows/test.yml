@@ -57,6 +57,7 @@ jobs:
         with:
           name: build-full-artifacts
           path: examples/full/build
+
   deploy:
     needs: build-full
     runs-on: ubuntu-latest
