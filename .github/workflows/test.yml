@@ -52,6 +52,13 @@ jobs:
           cd examples/full
           yarn build
 
+      - name: List build directory
+        run: |
+          echo "Listing examples/full directory contents:"
+          ls examples/full
+          echo "Listing examples/full/build directory contents:"
+          ls examples/full/build
+
       - name: Upload build artifacts
         uses: actions/upload-artifact@v3
         with:
