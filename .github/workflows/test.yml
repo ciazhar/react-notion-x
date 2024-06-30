@@ -61,7 +61,7 @@ jobs:
   deploy:
     needs: build-full
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/main/masfer'  # only deploy on push to main branch
+    if: github.ref == 'refs/heads/main/master'  # only deploy on push to main branch
     steps:
       - uses: actions/checkout@v3
 
