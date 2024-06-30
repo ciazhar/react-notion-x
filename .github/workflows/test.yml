@@ -81,6 +81,7 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./examples/full/build
+          
   # TODO: using the official API with GitHub Actions results in too much rate
   # limiting and false negative build failures, so we're disabling it for now.
   # build-full-official-api:
