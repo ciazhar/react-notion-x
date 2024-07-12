@@ -34,7 +34,7 @@ You can preview `react-notion-x` using the official client and compatibility lay
 
 Currently, ~20 blocks have full compatibility and 8 have partial compatibility (sometimes in subtle ways) due Notion's official API not returning enough info for us to faithfully render them in all cases. See the block-by-block compatibility notes below for more info.
 
-I recommend checking out [the notion-compat demo](https://react-notion-x-official-api-demo.transitivebullsh.it/) side-by-side with the [normal react-notion-x demo](https://react-notion-x-demo.transitivebullsh.it/) (which uses the unofficial Notion API via `notion-client`) and the [equivalent public notion page](https://transitive-bs.notion.site/Notion-Kit-Test-Suite-067dd719a912471ea9a3ac10710e7fdf).
+I recommend checking out [the notion-compat demo](https://react-notion-x-official-api-demo.transitivebullsh.it/) side-by-side with the [normal react-notion-x demo](https://react-notion-x-demo.transitivebullsh.it/) (which uses the unofficial Notion API via `notion-client`) and the [equivalent public notion page](https://transitive-bs.notion.site/Notion-Kit-Test-Suite-0964fda13c0c4c48a6f0c08d20094592).
 
 Note that using the official API with `notion-compat` is **significantly slower** than using the unofficial API via `notion-client` because of [reasons](https://github.com/NotionX/react-notion-x/issues/269#issuecomment-1100648873).
 
@@ -124,7 +124,7 @@ The main feature missing from `notion-compat` right now is collection (database)
     - 72c5d33ca46642feaee06852cc57c588
     - 3702a5d6403d4d58b8a944a77ca26c70
   - page cover missing `page_cover_position`
-    - 067dd719a912471ea9a3ac10710e7fdf
+    - 0964fda13c0c4c48a6f0c08d20094592
 - link_to_page (`alias` block)
   - missing for links pointing to other workspaces, even if they're publicly readable
   - 034119d20132420abe8e9863bbe91e9d

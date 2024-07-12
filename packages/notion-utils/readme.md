@@ -22,7 +22,7 @@ This package is compatible with both Node.js and client-side web usage.
 import { parsePageId } from 'notion-utils'
 
 parsePageId(
-  'https://www.notion.so/Notion-Tests-067dd719a912471ea9a3ac10710e7fdf'
+  'https://www.notion.so/Notion-Tests-0964fda13c0c4c48a6f0c08d20094592'
 )
 // '067dd719-a912-471e-a9a3-ac10710e7fdf'
 

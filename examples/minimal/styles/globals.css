@@ -6,3 +6,67 @@ body {
   padding: 0;
   margin: 0;
 }
+
+.dark-mode {
+  --black: #191919;
+  --grey: #262626;
+  --white: #ffffff;
+  --bg-color: var(--black);
+  --fg-color-0: #3c3c3c;
+  --notion-gray_background: var(--grey);
+}
+
+.notion-collection-view-tabs-content-item:hover {
+  background-color: var(--grey);
+  border-radius: 3px;
+}
+
+.notion-collection-card {
+  background: var(--grey);
+  color: var(--white);
+}
+
+.notion-page-title-text {
+  border-bottom: 1px solid var(--grey);
+}
+
+.notion-link {
+  border-bottom: 0.05em solid var(--grey);
+}
+
+.notion-collection-view-type-icon {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  /* fill: var(--fg-color); */
+  fill: var(--white);
+  margin-right: 6px;
+}
+
+:root {
+  --notion-item-blue: #29456c;
+  --notion-item-orange: #854c1d;
+  --notion-item-green: #2c593f;
+  --notion-item-pink: #77455d;
+  --notion-item-brown: #603b2c;
+  --notion-item-red: #6c353d;
+  --notion-item-yellow: #89632a;
+  --notion-item-default: #373737;
+  --notion-item-purple: #4e3065;
+  --notion-item-gray: #5a5a5a;
+}
+
+.notion-gallery-grid {
+  border-top: 1px solid var(--grey);
+}
+
+.notion-page-icon-hero.notion-page-icon-image {
+  width: 101px;
+  height: 101px;
+  margin-left: -62px;
+}
+
+.notion-collection-card-size-small .notion-collection-card-cover {
+  height: 101px;
+}
+

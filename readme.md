@@ -39,7 +39,7 @@ And if you want even more control, then you're in the right place! 👇👇
 - ⚡ **Fast** - 10-100x faster than Notion
   - 95-100% Lighthouse scores
   - Heavier components can be loaded lazily via `next/dynamic`
-- 💯 **Tests** - Comes with a comprehensive [test suite](https://www.notion.so/Notion-Test-Suite-067dd719a912471ea9a3ac10710e7fdf) covering most of Notion's functionality
+- 💯 **Tests** - Comes with a comprehensive [test suite](https://www.notion.so/ciazhar/Personal-Portfolio-0964fda13c0c4c48a6f0c08d20094592) covering most of Notion's functionality
 - 🔥 **Solid** - Used in production by [Potion](https://www.potion.so) and thousands of websites
 - 💪 **Smooth** - Supports `next/image` along with LQIP preview images ([demo](https://react-notion-x-demo.transitivebullsh.it/3492bd6dbaf44fe7a5cac62c5d402f06))
 - Framework agnostic - Use with next.js, create-react-app, gatsby, etc
@@ -53,7 +53,7 @@ import { NotionAPI } from 'notion-client'
 
 const notion = new NotionAPI()
 
-const recordMap = await notion.getPage('067dd719a912471ea9a3ac10710e7fdf')
+const recordMap = await notion.getPage('0964fda13c0c4c48a6f0c08d20094592')
 ```
 
 Once you have the data for a Notion page, you can render it via React:
@@ -248,7 +248,7 @@ The majority of Notion blocks and collection views are fully supported.
 
 Please let us know if you find any issues or missing blocks.
 
-All known blocks and most known configuration settings can be found in our [test suite](https://www.notion.so/Notion-Test-Suite-067dd719a912471ea9a3ac10710e7fdf).
+All known blocks and most known configuration settings can be found in our [test suite](https://www.notion.so/ciazhar/Personal-Portfolio-0964fda13c0c4c48a6f0c08d20094592).
 
 ## Performance
 
@@ -295,7 +295,7 @@ This wraps these next.js components in a compatability layer so `NotionRenderer`
 - [Next.js Template](https://github.com/transitive-bullshit/nextjs-notion-starter-kit) - The easiest way to deploy a self-hosted Notion site with Next.js and Vercel.
   - Only takes a few minutes to setup!
   - Uses `react-notion-x` under the hood
-- [Notion Test Suite](https://www.notion.so/Notion-Test-Suite-067dd719a912471ea9a3ac10710e7fdf) - Comprehensive suite of Notion test pages
+- [Notion Test Suite](https://www.notion.so/ciazhar/Personal-Portfolio-0964fda13c0c4c48a6f0c08d20094592) - Comprehensive suite of Notion test pages
 - [react-notion](https://github.com/splitbee/react-notion) - Original react renderer for notion
   - `react-notion-x` started as a fork of `react-notion` with better support for different types of Notion content (especially collections) and grew into something much more comprehensive
   - `react-notion` is no longer actively maintained
